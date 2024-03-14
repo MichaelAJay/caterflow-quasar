@@ -1,5 +1,5 @@
 <template>
-  <q-item clickable tag="a" target="_blank" :href="link">
+  <q-item clickable @click="navigate">
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
@@ -12,20 +12,30 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
 defineOptions({
-  name: 'EssentialLink',
+  name: 'DrawerNavLink',
 });
 
-export interface EssentialLinkProps {
+export interface DrawerNavLinkProps {
   title: string;
   caption?: string;
   link?: string;
   icon?: string;
 }
 
-withDefaults(defineProps<EssentialLinkProps>(), {
+const props = withDefaults(defineProps<DrawerNavLinkProps>(), {
   caption: '',
   link: '#',
   icon: '',
 });
+
+const router = useRouter();
+
+function navigate() {
+  if (props.link) {
+    router.push(props.link);
+  }
+}
 </script>

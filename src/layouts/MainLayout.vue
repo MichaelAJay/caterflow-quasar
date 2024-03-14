@@ -11,9 +11,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title> Caterflow </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
@@ -21,11 +19,13 @@
       <q-list>
         <q-item-label header> Essential Links </q-item-label>
 
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
+        <nav>
+          <EssentialLink
+            v-for="link in linksList"
+            :key="link.title"
+            v-bind="link"
+          />
+        </nav>
       </q-list>
     </q-drawer>
 
