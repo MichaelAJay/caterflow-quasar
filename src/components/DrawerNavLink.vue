@@ -5,7 +5,7 @@
     </q-item-section>
 
     <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
+      <q-item-label>{{ name }}</q-item-label>
       <q-item-label caption>{{ caption }}</q-item-label>
     </q-item-section>
   </q-item>
@@ -19,23 +19,21 @@ defineOptions({
 });
 
 export interface DrawerNavLinkProps {
-  title: string;
+  name: string;
   caption?: string;
-  link?: string;
   icon?: string;
 }
 
 const props = withDefaults(defineProps<DrawerNavLinkProps>(), {
   caption: '',
-  link: '#',
   icon: '',
 });
 
 const router = useRouter();
 
 function navigate() {
-  if (props.link) {
-    router.push(props.link);
+  if (props.name) {
+    router.push({ name: props.name });
   }
 }
 </script>
