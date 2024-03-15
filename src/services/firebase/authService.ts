@@ -2,12 +2,14 @@ import {
   User,
   UserCredential,
   createUserWithEmailAndPassword,
+  getAuth,
   sendEmailVerification,
   signInWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
-import { auth } from './init';
 import { FirebaseError } from 'firebase/app';
+
+const auth = getAuth();
 
 export const getUser = (): User | null => {
   const user = auth.currentUser;

@@ -20,10 +20,17 @@
         <q-item-label header> Essential Links </q-item-label>
 
         <nav>
-          <EssentialLink
+          <!-- <EssentialLink
             v-for="link in linksList"
             :key="link.title"
             v-bind="link"
+          /> -->
+          <DrawerNavLink
+            v-for="link in linksList"
+            :key="link.name"
+            :name="link.name"
+            :caption="link.caption"
+            :icon="link.icon"
           />
         </nav>
       </q-list>
@@ -36,59 +43,68 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import EssentialLink, {
-  EssentialLinkProps,
-} from 'components/EssentialLink.vue';
+import { computed, ref } from 'vue';
+import DrawerNavLink, {
+  DrawerNavLinkProps,
+} from 'src/components/DrawerNavLink.vue';
+import { useAuthStore } from 'src/stores/auth-store';
+import { USER_NAV_LINKS, VISITOR_NAV_LINKS } from 'src/router/nav-links';
+
+// Iniitialize stores
+const authStore = useAuthStore();
 
 defineOptions({
   name: 'MainLayout',
 });
 
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
-];
+// const linksList: EssentialLinkProps[] = [
+//   {
+//     title: 'Docs',
+//     caption: 'quasar.dev',
+//     icon: 'school',
+//     link: 'https://quasar.dev',
+//   },
+//   {
+//     title: 'Github',
+//     caption: 'github.com/quasarframework',
+//     icon: 'code',
+//     link: 'https://github.com/quasarframework',
+//   },
+//   {
+//     title: 'Discord Chat Channel',
+//     caption: 'chat.quasar.dev',
+//     icon: 'chat',
+//     link: 'https://chat.quasar.dev',
+//   },
+//   {
+//     title: 'Forum',
+//     caption: 'forum.quasar.dev',
+//     icon: 'record_voice_over',
+//     link: 'https://forum.quasar.dev',
+//   },
+//   {
+//     title: 'Twitter',
+//     caption: '@quasarframework',
+//     icon: 'rss_feed',
+//     link: 'https://twitter.quasar.dev',
+//   },
+//   {
+//     title: 'Facebook',
+//     caption: '@QuasarFramework',
+//     icon: 'public',
+//     link: 'https://facebook.quasar.dev',
+//   },
+//   {
+//     title: 'Quasar Awesome',
+//     caption: 'Community Quasar projects',
+//     icon: 'favorite',
+//     link: 'https://awesome.quasar.dev',
+//   },
+// ];
+
+const linksList = computed<DrawerNavLinkProps[]>(() => {
+  return authStore.isAuthenticated ? USER_NAV_LINKS : VISITOR_NAV_LINKS;
+});
 
 const leftDrawerOpen = ref(false);
 
