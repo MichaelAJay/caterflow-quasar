@@ -33,7 +33,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     {
       path: 'login',
       name: 'Login',
-      component: () => import('pages/Login.vue'),
+      component: () => import('pages/UserLogin.vue'),
       caption: '',
       icon: '',
       isUserRoute: false,

@@ -20,6 +20,7 @@
         color="primary"
         class="col q-mx-sm"
         size="md"
+        @click="handleGetStartedClick"
       />
       <q-btn
         label="Login"
@@ -27,6 +28,7 @@
         color="primary"
         class="col q-mx-sm"
         size="md"
+        @click="handleLoginClick"
       />
     </div>
 
@@ -49,6 +51,16 @@
 <script setup lang="ts">
 import logo from 'src/assets/CF_logo.svg';
 import TestimonialCarousel from 'src/components/testimonials/TestimonialCarousel.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const handleGetStartedClick = () => {
+  router.push({ name: 'Sign Up' });
+};
+const handleLoginClick = () => {
+  router.push({ name: 'Login' });
+};
 </script>
 
 <style scoped>
