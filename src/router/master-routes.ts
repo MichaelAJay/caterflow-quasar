@@ -15,7 +15,15 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
   component: () => import('layouts/MainLayout.vue'),
   children: [
     {
-      path: '/sign-up',
+      path: '',
+      name: 'Visitor Home',
+      component: () => import('pages/VisitorHome.vue'),
+      caption: '',
+      icon: '',
+      isUserRoute: false,
+    },
+    {
+      path: 'sign-up',
       name: 'Sign Up',
       component: () => import('pages/SignUp.vue'),
       caption: '',
@@ -23,7 +31,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: false,
     },
     {
-      path: '/login',
+      path: 'login',
       name: 'Login',
       component: () => import('pages/Login.vue'),
       caption: '',
@@ -31,7 +39,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: false,
     },
     {
-      path: '/dashboard',
+      path: 'dashboard',
       name: 'Dashboard',
       component: () => import('pages/Dashboard.vue'),
       caption: '',
@@ -39,7 +47,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: false,
     },
     {
-      path: '/get-started',
+      path: 'get-started',
       name: 'Get Started',
       component: () => import('pages/GetStarted.vue'),
       caption: '',
@@ -47,7 +55,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: false,
     },
     {
-      path: '/verify-email',
+      path: 'verify-email',
       name: 'Verify Email',
       component: () => import('pages/VerifyEmail.vue'),
       caption: '',
@@ -55,7 +63,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: false,
     },
     {
-      path: '/add-organization',
+      path: 'add-organization',
       name: 'Add Organization',
       component: () => import('pages/CreateOrganization.vue'),
       caption: '',
@@ -63,7 +71,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: true,
     },
     {
-      path: '/integrations',
+      path: 'integrations',
       name: 'Integration Home',
       component: () => import('pages/IntegrationHome.vue'),
       caption: '',
@@ -71,7 +79,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       isUserRoute: true,
     },
     {
-      path: '/onboard',
+      path: 'onboard',
       name: 'Onboard Assistant',
       component: () => import('pages/OnboardSetupAssistant.vue'),
       caption: '',
