@@ -28,6 +28,7 @@ const emit = defineEmits([EVENTS.nextSlide]);
 const handleIVerifiedClick = () => {
   // handle click event
   console.log('I Verified button clicked');
+  console.log(EVENTS.nextSlide);
   emit(EVENTS.nextSlide);
 };
 

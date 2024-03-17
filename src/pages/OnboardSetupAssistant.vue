@@ -1,10 +1,10 @@
 <template>
   <q-carousel v-model="currentSlide" animated swipeable>
     <q-carousel-slide name="1">
-      <VerifyEmail @next-step="handleVerifySuccess" />
+      <VerifyEmail @next-slide="handleVerifySuccess" />
     </q-carousel-slide>
     <q-carousel-slide name="2">
-      <CreateOrganization @next-step="handleOrganizationAdded" />
+      <CreateOrganization @next-slide="handleOrganizationAdded" />
     </q-carousel-slide>
     <q-carousel-slide name="3">
       <!-- Wizard outflow utilizes vue-router in OnboardConfirmation -->
@@ -22,10 +22,12 @@ import OnboardConfirmation from 'src/components/onboard/OnboardConfirmation.vue'
 const currentSlide = ref('1');
 
 const handleVerifySuccess = () => {
+  console.log('in handle verify success handler');
   currentSlide.value = '2'; // Move to the next slide
 };
 
 const handleOrganizationAdded = () => {
+  console.log('in handle org added success handler');
   currentSlide.value = '3'; // Move to the next slide
 };
 </script>

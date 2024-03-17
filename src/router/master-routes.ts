@@ -12,7 +12,6 @@ type LayoutRoute = Omit<RouteRecordRaw, 'children' | 'components'> & {
 
 export const ROUTE_NAMES = {
   VisitorHome: 'Visitor Home',
-  SignUp: 'Sign Up',
   Login: 'Login',
   Dashboard: 'Dashboard',
   GetStarted: 'Get Started',
@@ -30,14 +29,6 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
       path: '',
       name: ROUTE_NAMES.VisitorHome,
       component: () => import('pages/VisitorHome.vue'),
-      caption: '',
-      icon: '',
-      isUserRoute: false,
-    },
-    {
-      path: 'sign-up',
-      name: ROUTE_NAMES.SignUp,
-      component: () => import('pages/SignUp.vue'),
       caption: '',
       icon: '',
       isUserRoute: false,

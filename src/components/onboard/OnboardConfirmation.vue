@@ -22,9 +22,9 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const props = defineProps({
-  // Add any props you need here
-});
+// const props = defineProps({
+//   // Add any props you need here
+// });
 
 const handleIntegrationsClick = () => {
   // Add your logic for the "Integrations" button click here

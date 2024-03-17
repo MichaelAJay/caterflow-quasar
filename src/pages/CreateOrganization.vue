@@ -12,16 +12,24 @@
 </template>
 
 <script setup lang="ts">
+import { EVENTS } from 'src/common/events';
+// import { addOrganization } from 'src/services/api/backendService';
 import { ref } from 'vue';
+
+const emit = defineEmits([EVENTS.nextSlide]);
 
 const form = ref({
   name: '',
 });
 
-const nameRule = (val: string) => !!val || 'Valid email is required';
+const nameRule = (val: string) =>
+  !!val || 'Please provide a name for your company';
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
+  const { name } = { ...form.value };
+  // await addOrganization(name);
   // handle form
-  console.log(form.value);
+  console.log(name);
+  emit(EVENTS.nextSlide);
 };
 </script>
