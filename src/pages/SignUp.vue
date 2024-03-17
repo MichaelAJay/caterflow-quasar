@@ -24,6 +24,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const form = ref({
   name: '',
@@ -49,5 +52,10 @@ const confirmPasswordRule = (val: string) =>
 const handleSubmit = () => {
   // handle form
   console.log(form.value);
+
+  // Call Firebase API "Create"
+  // Call Firebase API "Update" (for name)
+  // Call Firebase API "Send Email" - is this required?
+  // Call my API "Create User"
 };
 </script>

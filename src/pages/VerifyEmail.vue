@@ -21,9 +21,14 @@
 </template>
 
 <script setup lang="ts">
+import { EVENTS } from 'src/common/events';
+
+const emit = defineEmits([EVENTS.nextSlide]);
+
 const handleIVerifiedClick = () => {
   // handle click event
   console.log('I Verified button clicked');
+  emit(EVENTS.nextSlide);
 };
 
 const handleResendEmailClick = () => {
