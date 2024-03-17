@@ -23,6 +23,9 @@
 </template>
 
 <script setup lang="ts">
+import { ROUTE_NAMES } from 'src/router/master-routes';
+import { apiLogin } from 'src/services/api/backendService';
+import { signUpUser, updateUser } from 'src/services/firebase/authService';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -49,13 +52,20 @@ const passwordRule = (val: string) =>
 const confirmPasswordRule = (val: string) =>
   val === form.value.password || 'Passwords must match';
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
+  const { email, password, name } = { ...form.value };
   // handle form
   console.log(form.value);
 
   // Call Firebase API "Create"
+  // await signUpUser(email, password);
+
   // Call Firebase API "Update" (for name)
-  // Call Firebase API "Send Email" - is this required?
+  // await updateUser({ displayName: name });
+
   // Call my API "Create User"
+  // await apiLogin();
+
+  router.push({ name: ROUTE_NAMES.OnboardAssistant });
 };
 </script>

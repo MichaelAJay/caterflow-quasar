@@ -51,15 +51,16 @@
 <script setup lang="ts">
 import logo from 'src/assets/CF_logo.svg';
 import TestimonialCarousel from 'src/components/testimonials/TestimonialCarousel.vue';
+import { ROUTE_NAMES } from 'src/router/master-routes';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
 const handleGetStartedClick = () => {
-  router.push({ name: 'Sign Up' });
+  router.push({ name: ROUTE_NAMES.GetStarted });
 };
 const handleLoginClick = () => {
-  router.push({ name: 'Login' });
+  router.push({ name: ROUTE_NAMES.Login });
 };
 </script>
 

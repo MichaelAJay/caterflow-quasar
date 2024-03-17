@@ -10,13 +10,25 @@ type LayoutRoute = Omit<RouteRecordRaw, 'children' | 'components'> & {
   children: LayoutRouteChild[];
 };
 
+export const ROUTE_NAMES = {
+  VisitorHome: 'Visitor Home',
+  SignUp: 'Sign Up',
+  Login: 'Login',
+  Dashboard: 'Dashboard',
+  GetStarted: 'Get Started',
+  VerifyEmail: 'Verify Email',
+  AddOrganization: 'Add Organization',
+  IntegrationHome: 'Integration Home',
+  OnboardAssistant: 'Onboard Assistant',
+};
+
 export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
   path: '/',
   component: () => import('layouts/MainLayout.vue'),
   children: [
     {
       path: '',
-      name: 'Visitor Home',
+      name: ROUTE_NAMES.VisitorHome,
       component: () => import('pages/VisitorHome.vue'),
       caption: '',
       icon: '',
@@ -24,7 +36,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'sign-up',
-      name: 'Sign Up',
+      name: ROUTE_NAMES.SignUp,
       component: () => import('pages/SignUp.vue'),
       caption: '',
       icon: '',
@@ -32,7 +44,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'login',
-      name: 'Login',
+      name: ROUTE_NAMES.Login,
       component: () => import('pages/UserLogin.vue'),
       caption: '',
       icon: '',
@@ -40,7 +52,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'dashboard',
-      name: 'Dashboard',
+      name: ROUTE_NAMES.Dashboard,
       component: () => import('pages/Dashboard.vue'),
       caption: '',
       icon: '',
@@ -48,7 +60,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'get-started',
-      name: 'Get Started',
+      name: ROUTE_NAMES.GetStarted,
       component: () => import('pages/GetStarted.vue'),
       caption: '',
       icon: '',
@@ -56,7 +68,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'verify-email',
-      name: 'Verify Email',
+      name: ROUTE_NAMES.VerifyEmail,
       component: () => import('pages/VerifyEmail.vue'),
       caption: '',
       icon: '',
@@ -64,7 +76,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'add-organization',
-      name: 'Add Organization',
+      name: ROUTE_NAMES.AddOrganization,
       component: () => import('pages/CreateOrganization.vue'),
       caption: '',
       icon: '',
@@ -72,7 +84,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'integrations',
-      name: 'Integration Home',
+      name: ROUTE_NAMES.IntegrationHome,
       component: () => import('pages/IntegrationHome.vue'),
       caption: '',
       icon: '',
@@ -80,7 +92,7 @@ export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
     },
     {
       path: 'onboard',
-      name: 'Onboard Assistant',
+      name: ROUTE_NAMES.OnboardAssistant,
       component: () => import('pages/OnboardSetupAssistant.vue'),
       caption: '',
       icon: '',

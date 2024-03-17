@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import { ROUTE_NAMES } from 'src/router/master-routes';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -27,12 +28,12 @@ const props = defineProps({
 
 const handleIntegrationsClick = () => {
   // Add your logic for the "Integrations" button click here
-  router.push({ name: 'Integration Home' });
+  router.push({ name: ROUTE_NAMES.IntegrationHome });
 };
 
 const handleDashboardClick = () => {
   // Add your logic for the "Dashboard" button click here
-  router.push({ name: 'Dashboard' });
+  router.push({ name: ROUTE_NAMES.Dashboard });
 };
 </script>
 
