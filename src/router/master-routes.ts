@@ -23,7 +23,8 @@ export const ROUTE_NAMES = {
 
 export const MAIN_LAYOUT_ROUTE: LayoutRoute = {
   path: '/',
-  component: () => import('layouts/MainLayout.vue'),
+  // component: () => import('layouts/MainLayout.vue'),
+  component: () => import('layouts/MyFirstCopiedLayout.vue'),
   children: [
     {
       path: '',
